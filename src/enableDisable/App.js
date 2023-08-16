@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import "./styles.css";
 
 function App() {
+// let input = document.querySelector('input')
+// console.log(input.value=='value 1')
+
     const [hide,sethide]  = useState(true)
    
     const [initialData, setInitialData] = useState([
@@ -17,10 +20,12 @@ function App() {
         var disableBtn = document.querySelector('.disable')
         disableBtn.disabled = true
         enableBtn.disabled = false
+    //     // sethide(hide.disabled = true)
         
-        // console.log(tr)
+    //     // console.log(tr)
         sethide(false)
      
+   
 
     }
 
@@ -54,12 +59,24 @@ function App() {
                                 <input type="text" value={data.attribute1} readOnly />
                             </td>
                             <td>
-                                <input type="text" value={data.attribute2} readOnly />
+                                <input type="text"   value={data.attribute2} readOnly />
                             </td>
                             <td>
                                 <input type="text" value={data.attribute3} readOnly />
                             </td>
-                        </tr>:''
+                        </tr>
+                        :
+                        <tr className="table-row" key={index}>
+                            <td>
+                                <input type="text" disabled value={data.attribute1} readOnly />
+                            </td>
+                            <td>
+                                <input type="text" disabled  value={data.attribute2} readOnly />
+                            </td>
+                            <td>
+                                <input type="text" disabled value={data.attribute3} readOnly />
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
